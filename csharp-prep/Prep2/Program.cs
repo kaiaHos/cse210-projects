@@ -9,7 +9,7 @@ class Program
     F < 60*/
     static void Main(string[] args)
     {
-        string grade;
+        string letter;
         //Console.WriteLine("Hello Prep2 World!");
 
         // This gets the unser input for there grade percentage
@@ -19,26 +19,26 @@ class Program
 
         if (percentage >= 90)
         {
-            grade = "A";
+            letter = "A";
         }
         else if (percentage >= 80)
         {
-            grade = "B";
+            letter = "B";
         }
         else if (percentage >= 70)
         {
-            grade = "C";
+            letter = "C";
         }
         else if (percentage >= 60)
         {
-            grade = "D";
+            letter = "D";
         }
         else
         {
-            grade = "F";
+            letter = "F";
         }
         
-        Console.WriteLine($"Your grade is: {grade}");
+        Console.WriteLine($"Your grade is: {letter}");
         
         if (percentage > 70)
         {
