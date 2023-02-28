@@ -17,9 +17,23 @@ class Program
         job2._jobTitle = "Photographers Assistant";
         job2._company = "MarDel Photography";
         job2._startYear = 2021;
-        job2._startYear = 2023;
+        job2._endYear = 2023;
 
         job1.DisplayJobInfo();
+        job2.DisplayJobInfo();
+
+        //Console.Write("What is your name? ");
+        //string name = Console.ReadLine();
+        Resume myResume = new Resume();
+
+        myResume._jobs.Add(job1);
+        myResume._jobs.Add(job2);
+       // myResume._name = name;
+        myResume._name = "Kaia Hospodarsky";
+
+        myResume.DisplayResume();
+
+        //Console.WriteLine(myResume._jobs[0]._jobTitle);
         //Console.WriteLine(job1._company);
         //Console.WriteLine(job2._company);
 
