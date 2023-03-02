@@ -2,8 +2,10 @@
 public class GeneratePrompt
 {
     public string _randomPrompt = "";
-    public string Prompt()
+    public void /*string*/ Prompt()
     {
-       return _randomPrompt;
+        _randomPrompt = "What miracles did you see in your life today?";
+        Console.Write(_randomPrompt);
+       //return _randomPrompt;
     }
 }

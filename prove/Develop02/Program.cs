@@ -17,7 +17,8 @@ class Program
             selection = int.Parse(Console.ReadLine());
             if (selection == 1)
             {
-
+                Journal myJournal = new Journal();
+                myJournal.AddEntry();
             }
             else if (selection == 2)
             {
