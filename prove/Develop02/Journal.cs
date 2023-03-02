@@ -3,17 +3,15 @@ using System;
 
 
 
-public class Journals
+public class Journal
 {
      public List<Entry> _entries = new List<Entry>();
     public void SaveFile()
     {
 
-
     }
     public void LoadFile()
     {
-
 
     }
     public void AddEntry()
@@ -28,15 +26,25 @@ public class Journals
 
         newEntry._userEntry = entryFromUser;
         newEntry._entryPrompt = newPromt._randomPrompt;
-        newEntry._date = "3/2/2023";
 
+        /*
+        need to use DateTime module to create this info.
+        !!!!!!!
+        !!!!!!
+        !!!!!
+        !!!!!
+        !!!!!!!!!!!!!
+        */
+       // newEntry._date = "3/2/2023";
 
+        _entries.Add(newEntry);
     }
     public void DisplayEntries()
     {
         foreach(Entry entry in _entries)
         {
             entry.Display();
+            Console.WriteLine();
         }
     }
 }
