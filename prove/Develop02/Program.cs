@@ -12,9 +12,9 @@ class Program
             // menu selection
             Console.WriteLine("1. New Entry"); // 1 New Entry
             Console.WriteLine("2. DisplayJournal"); // 2 Display Journal
-            Console.WriteLine("2 Save Journal");// 3 Save Journal
-            Console.WriteLine("2 Load Journal");// 4 Load Journal
-            Console.WriteLine("5 Quit");// 5 Quit
+            Console.WriteLine("3. Save Journal");// 3 Save Journal
+            Console.WriteLine("4. Load Journal");// 4 Load Journal
+            Console.WriteLine("5. Quit");// 5 Quit
 
             // this is how the use selects the number.
             Console.Write("Enter number: ");
@@ -31,11 +31,11 @@ class Program
             }
             else if (selection == 3)
             {
-                myJournal.LoadFile();
+                myJournal.SaveFile();
             }
             else if (selection == 4)
             {
-                myJournal.SaveFile();
+                myJournal.LoadFile();
             }
             
         } while (selection != 5);
