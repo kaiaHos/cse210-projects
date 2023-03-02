@@ -1,0 +1,13 @@
+
+
+
+public class Entry
+{
+    public string _userEntry = "";
+    public string _entryPrompt = "";
+    public string _date = "";
+    public void Display()
+    {
+
+    }
+}

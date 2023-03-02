@@ -1,8 +1,9 @@
 
 public class GeneratePrompt
 {
-    public void Prompt()
+    public string _randomPrompt = "";
+    public string Prompt()
     {
-        //List<string> Prompts = 
+       return _randomPrompt;
     }
 }
