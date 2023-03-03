@@ -23,7 +23,9 @@ class Program
             if (selection == 1)
             {
                 //Journals myJournal = new Journals();
-                myJournal.AddEntry();
+                Console.Write("Do you wnat a random or custom prompt (please enter custom or random)? ");
+                string promptType = Console.ReadLine();
+                myJournal.AddEntry(promptType);
             }
             else if (selection == 2)
             {

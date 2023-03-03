@@ -55,21 +55,42 @@ public class Journal
         }
 
     }
-    public void AddEntry()
-    {
-        GeneratePrompt newPromt = new GeneratePrompt();
+    public void AddEntry(string typeOfPrompt)
+    {   
         Entry newEntry = new Entry();
 
-        newPromt.Prompt();
-        string entryFromUser = Console.ReadLine();
+        if (typeOfPrompt.ToLower() == "random")
+        {
+            GeneratePrompt newPromt = new GeneratePrompt();
+            
 
-        newEntry._userEntry = entryFromUser;
-        newEntry._entryPrompt = newPromt._randomPrompt;
+            newPromt.Prompt();
+            string entryFromUser = Console.ReadLine();
 
-        DateTime theCurrentTime = DateTime.Now;
-        newEntry._date = theCurrentTime.ToShortDateString();
+            newEntry._userEntry = entryFromUser;
+            newEntry._entryPrompt = newPromt._randomPrompt;
 
-        _entries.Add(newEntry);
+            DateTime theCurrentTime = DateTime.Now;
+            newEntry._date = theCurrentTime.ToShortDateString();
+
+            _entries.Add(newEntry);
+        }
+        else if (typeOfPrompt.ToLower() == "custom")
+        {
+            Console.Write("Please type in your custom prompt: ");
+            newEntry._entryPrompt = Console.ReadLine();
+
+            Console.Write("Please type your journal entry: ");
+            newEntry._userEntry = Console.ReadLine();
+
+            DateTime theCurrentTime = DateTime.Now;
+            newEntry._date = theCurrentTime.ToShortDateString();
+            _entries.Add(newEntry);
+        }
+        else
+        {
+            Console.WriteLine("Please type in a valid type of prompt. custom or random");
+        }
     }
     public void DisplayEntries()
     {
