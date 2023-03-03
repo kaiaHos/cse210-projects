@@ -19,3 +19,7 @@ public class GeneratePrompt
     }
 
 }
+
+
+// Link used to figure out how to do random in C sharp
+// https://www.tutorialsteacher.com/articles/generate-random-numbers-in-csharp

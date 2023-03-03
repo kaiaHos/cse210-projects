@@ -101,3 +101,7 @@ public class Journal
         }
     }
 }
+
+
+// Link to webpage I used to figure out how to lowercase all the letters from user input
+// https://www.programiz.com/csharp-programming/library/string/tolower#:~:text=The%20String%20ToLower()%20method,in%20the%20string%20to%20lowercase.
