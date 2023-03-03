@@ -16,14 +16,13 @@ class Program
             Console.WriteLine("4. Load Journal");// 4 Load Journal
             Console.WriteLine("5. Quit");// 5 Quit
 
-            // this is how the use selects the number.
+            // this is how the user selects the number.
             Console.Write("Enter number: ");
             
             selection = int.Parse(Console.ReadLine());
             if (selection == 1)
             {
-                //Journals myJournal = new Journals();
-                Console.Write("Do you wnat a random or custom prompt (please enter custom or random)? ");
+                Console.Write("Do you want a random or custom prompt (please enter custom or random)? ");
                 string promptType = Console.ReadLine();
                 myJournal.AddEntry(promptType);
             }

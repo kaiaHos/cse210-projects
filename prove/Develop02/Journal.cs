@@ -17,9 +17,9 @@ public class Journal
             outputFile.WriteLine("This is my Journal full of things I want to remember: date, prompt, journal entry");
 
             foreach(Entry entry in _entries)
-        {
-            outputFile.WriteLine($"{entry._date}||{entry._entryPrompt}||{entry._userEntry}");
-        }
+            {
+                outputFile.WriteLine($"{entry._date}||{entry._entryPrompt}||{entry._userEntry}");
+            }
 
         }
         
