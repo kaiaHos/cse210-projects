@@ -43,11 +43,11 @@ public class Reference
         string scriptureReference;
         if (!_verses)
         {
-            scriptureReference = _book.ToUpper() + "" + _chapter + ":" + _verse;
+            scriptureReference = _book + " " + _chapter + ":" + _verse;
         }
         else
         {
-            scriptureReference = _book + "" + _chapter + ":" + _verse + "-" + _endVerse;
+            scriptureReference = _book + " " + _chapter + ":" + _verse + "-" + _endVerse;
         }
         return scriptureReference;
     }
