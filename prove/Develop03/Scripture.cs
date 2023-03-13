@@ -5,12 +5,12 @@ public class Scripture
 {
     List<Word> _wordsOfVerse = new List<Word>();
     Reference _scriptureLocation;
-    Boolean _AllHidden;
+    Boolean _allHidden;
 
     public Scripture(Reference reference, string verseWords)
     {
         _scriptureLocation = reference;
-        _AllHidden = false;
+        _allHidden = false;
              
         string[] verse = verseWords.Split(" ");
 
@@ -25,37 +25,68 @@ public class Scripture
 
     public string GetScripture()
     {
-        
-        string scripture = _scriptureLocation.GetReference() + "";
-        return _scriptureLocation.GetReference();
+        string scriptureText = "";
+        foreach (Word word in _wordsOfVerse)
+        {
+           string newWord = word.GetRenderedText();
+           scriptureText = scriptureText + " " + newWord;
+        }
+        string scripture = _scriptureLocation.GetReference() + " " + scriptureText;
+        return scripture;
 
         
     }
 
-    public void HideWords()
+    public void HideWords(int howManyWords)
     {
-        int count = 0;
         int wordCount = _wordsOfVerse.Count() + 1;
-        int firstRandomNum = new Random().Next(0, wordCount); 
-        int secondRandomNum = new Random().Next(0, wordCount);
-        int thirdRandomNum = new Random().Next(0, wordCount);
-
-        foreach(Word word in _wordsOfVerse)
+        for (int i = 0; i<howManyWords; i++)
         {
-            if (count == firstRandomNum || count == secondRandomNum || count == thirdRandomNum)
+            Boolean newWordHidden = false;
+            Boolean hidingWord = false;
+            do
             {
-                word.Hide();
-            }
+                int firstRandomNum = new Random().Next(0, wordCount); 
+               // Console.WriteLine(firstRandomNum);
+                int count = 0;
+                foreach(Word word in _wordsOfVerse)
+                {   
+                    if (word.IsHidden() == false || hidingWord == true)
+                    {
+                        if (count == firstRandomNum)
+                        {
+                            hidingWord = true;
+                            //Console.WriteLine("Hiding Word");
+                            word.Hide();
+                            newWordHidden = true;
+                            hidingWord = false;
+                            // Console.WriteLine("stop");
+                        }
+                        //Console.WriteLine("check word");
+                    }
+                    //Console.WriteLine("add count");
+                    count = count + 1;
+                }
+            } while(newWordHidden == false && FullyHidden() == false);
+            //Console.WriteLine("out");
         }
     }
+                
 
     public Boolean FullyHidden()
     {
-        do
+        _allHidden = true;
+        // Check if each word is hidden, if not the scripture is not fully hidden.
+        foreach (Word word in _wordsOfVerse)
         {
-            // Check if each word is hidden, if not the scripture is not fully hidden.
-        }while(false);
+            if (word.IsHidden() == false)
+            {
+                //Console.WriteLine($"Not Hidden word: {word}");
+                _allHidden = false;
+            }
 
-        return _AllHidden;
+        }
+        
+        return _allHidden;
     }
 }

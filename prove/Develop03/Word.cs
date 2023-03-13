@@ -12,12 +12,28 @@ public class Word
 
     public void Hide()
     {
-        int length = _getWord.Length;
-        _Hidden = true;
+        if(!_Hidden)
+        {
+            int length = _getWord.Length;
+            string hiddenWord = "";
+            string[] letters = _getWord.Split("");
+            for(int i = 0; i<length; i++)
+            {
+                hiddenWord = hiddenWord + "_ ";
+            }
+            _getWord = hiddenWord;
+            //Console.WriteLine(_getWord);
+            _Hidden = true;
+        }
     }
 
-    public Boolean IsHidden(Word word)
+    public string  GetRenderedText()
     {
-        return false;
+        return _getWord;
+    }
+
+    public Boolean IsHidden()
+    {
+        return _Hidden;
     }
 }

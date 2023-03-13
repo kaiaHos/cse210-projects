@@ -9,14 +9,24 @@ class Program
         Reference rf = new Reference( "D&C", "19", "23");
         Scripture newScripture = new Scripture(rf, verse);
 
-        //Console.WriteLine("To quit type quit, to continue hit enter");
-        do
+        Console.Clear();
+        Console.Write("Please enter how many words would you like to hide at a time: ");
+        int numOfWords = int.Parse(Console.ReadLine());
+        
+        Console.WriteLine(newScripture.GetScripture());
+        Console.WriteLine("To quit type quit, to continue hit enter");
+        string answer = Console.ReadLine();
+        Boolean hidden = newScripture.FullyHidden();
+
+        while (answer.ToLower() != "quit" && hidden == false)
         {
-            Console.Clear();
+           Console.Clear(); 
+            newScripture.HideWords(numOfWords);
             Console.WriteLine(newScripture.GetScripture());
             Console.WriteLine("To quit type quit, to continue hit enter");
-
-        } while (Console.ReadLine().ToLower() != "quit" || newScripture.FullyHidden() == true);
+            answer = Console.ReadLine();
+            hidden = newScripture.FullyHidden();
+        } 
 
         //Console.WriteLine("Hello Develop03 World!");
     }
