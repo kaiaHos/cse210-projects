@@ -13,7 +13,7 @@ public class Activity
         _description = description;
     }
    
-       public void displaySpinner(int numSecondsToRun)
+    public void displaySpinner(int numSecondsToRun)
     {
         /*Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
@@ -53,12 +53,15 @@ public class Activity
         }
     }
 
+    public void SetDuration(int duration = 30)
+    {
+        _duration = duration;
+    }
+
     public void PrintStartMessage()
     {
         Console.WriteLine($"Welcome to the {_activityName} Activity");
         Console.WriteLine(_description);
-        Console.Write("How long would you like your session to be? ");
-        _duration = int.Parse(Console.ReadLine());
     }
 
     public void PrintEndMessage()
