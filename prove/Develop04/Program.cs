@@ -8,6 +8,7 @@ class Program
 
         do
         {
+            Console.Clear();
             // menu selection
             Console.WriteLine("1. Breathing"); // 1 Breathing Activity
             Console.WriteLine("2. Listing"); // 2 Listing Activity
@@ -19,7 +20,8 @@ class Program
             switch(number)
             {
                 default: 
-                    Console.WriteLine("Please enter a integer between 1 and 4 (ex. 2)");   
+                    Console.WriteLine("Please enter a integer between 1 and 4 (ex. 2)");  
+                    Thread.Sleep(1000); 
                     break;
                 case "1": //Breathing
                     Console.Write("Would you like to set the amount of time to breathe in and out? (yes/no) ");

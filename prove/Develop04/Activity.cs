@@ -15,13 +15,14 @@ public class Activity
    
     public void displaySpinner(int numSecondsToRun)
     {
-        /*Stopwatch stopwatch = new Stopwatch();
-        stopwatch.Start();
+        int spinnerCount = 0;
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(numSecondsToRun);
         
-        while (stopwatch.ElapsedMilliseconds / 1000 < numSecondsToRun)
+        while ( DateTime.Now< futureTime)
         {
-            spinnerCounter++;        
-            switch (spinnerCounter % 4)
+            spinnerCount++;        
+            switch (spinnerCount % 4)
             {
                 case 0: 
                     Console.Write("/"); 
@@ -38,16 +39,16 @@ public class Activity
             }
             Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
             Thread.Sleep(200);
-        }*/
+        }
  
         Console.Write(" ");
     } 
  
-    public void displayCountDown(int numSecondsToRun)
+    public void displayCountDown(string nameOfThing, int numSecondsToRun)
     {
         for (int i = numSecondsToRun; i >= 1; i--)
         {            
-            Console.Write(string.Format("You may begin in: {0}", i));
+            Console.Write(string.Format($"{nameOfThing}: {i}"));
             Console.SetCursorPosition(0, Console.CursorTop);
             Thread.Sleep(1000);
         }
@@ -60,6 +61,7 @@ public class Activity
 
     public void PrintStartMessage()
     {
+        Console.Clear();
         Console.WriteLine($"Welcome to the {_activityName} Activity");
         Console.WriteLine(_description);
     }
