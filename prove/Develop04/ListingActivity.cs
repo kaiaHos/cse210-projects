@@ -3,7 +3,7 @@
 
 public class ListingActivity: Activity
 {
-    private List<string> _prompts = new List<string>{"prompt 1", "prompt 2"};
+    private List<string> _prompts = new List<string>{"What things are you grateful for?", "What acts of kindness have you done?", "What are personal strengths of yours?", "Who are the heros in your life?", "What hobbies do you have?"};
     private List<string> _userInputs = new List<string>();
 
     public ListingActivity() : base("This activity helps you list the different things about your day. It also helps you focus on a certain part of what you do each day.", "Listing")
