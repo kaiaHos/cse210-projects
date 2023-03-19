@@ -15,17 +15,21 @@ public class BreathingActivity: Activity
     public void BreathingInstruction()
     {
         PrintStartMessage();
-        Console.Write("How long would you like your session to be in seconds? ");
-        SetDuration(int.Parse(Console.ReadLine()));
-        Console.Clear();
+        //Console.Clear();
 
-        // This is the loop with breathing code
-        displayCountDown("Breath in...", _breathInTime);
-        displayCountDown("Breath out...", _breathOutIme);
-
-    
-        PrintEndMessage();
-        displaySpinner(2);
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(GetDuration());
         
+        while (DateTime.Now < futureTime)
+        {
+            // This is the loop with breathing code
+            Console.WriteLine("");
+            displayCountDown("Breath in...", _breathInTime);
+            Console.WriteLine("");
+            displayCountDown("Breath out...", _breathOutIme);
+            Console.WriteLine("");
+        }
+    
+        PrintEndMessage();        
     }
 }

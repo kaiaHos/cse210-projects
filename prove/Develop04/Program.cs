@@ -41,10 +41,12 @@ class Program
                     }
                     break;
                 case "2": //Listing
-
+                    ListingActivity list = new ListingActivity();
+                    list.GetAndDisplayPrompt();
                     break;
                 case "3": // Reflection
-
+                    ReflectionActivity reflect = new ReflectionActivity();
+                    reflect.GetAndDisplayPrompt();
                     break;
                 case "4": // Quit
                     Console.WriteLine("Thanks for working on your Mindfulness today!");
