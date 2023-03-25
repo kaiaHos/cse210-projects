@@ -15,7 +15,7 @@ public class Goal
         _completionPoints = points;
     }
 
-    public void SetGoalCompletion(Boolean done)
+    public virtual void SetGoalCompletion(Boolean done)
     {
         _complete = done;
     }
