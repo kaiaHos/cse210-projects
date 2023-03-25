@@ -17,7 +17,10 @@ public class Goal
 
     public virtual void SetGoalCompletion(Boolean done)
     {
+        Program program = new Program();
         _complete = done;
+
+        program.SetPoints(_completionPoints);       
     }
 
     public virtual Boolean Completed()
@@ -27,6 +30,6 @@ public class Goal
 
     public virtual void DisplayGoal()
     {
-
+        Console.WriteLine($"Goal: {_goal} ({_description})");
     }
 }

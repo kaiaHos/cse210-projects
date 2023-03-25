@@ -15,13 +15,15 @@ public class SimpleGoal : Goal
 
     public override void DisplayGoal()
     {
-        string done = " ";
+        string done = "{ }";
 
         if (Completed())
         {
-            done = "X";
+            done = "{X}";
         }
                
         Console.WriteLine($"{done} {_goal} ({_description})");
     }
+
+
 }

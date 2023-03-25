@@ -3,13 +3,13 @@ using System.IO;
 
 class File : Program
 {
-    public void SaveGoal()
+    public void SaveGoal(Goal goal)
     {
-       // GetStringRepresentation()
 
+        Console.WriteLine(goal);
     }
 
-    public void LoadGoal()
+    public void LoadGoals()
     {
         Console.Write("Please enter the file name? ");
         string fileName = Console.ReadLine();
@@ -72,11 +72,12 @@ class File : Program
     {
         string[] parts = AllGoalInfo.Split("||");
 
-        //CheckpointGoal checkpoint = new CheckpointGoal(parts[0], parts[1], int.Parse(parts[2]));
+        CheckpointGoal checkpoint = new CheckpointGoal(parts[0], parts[1], int.Parse(parts[2]));
 
-        //checkpoint.SetTimeDone(int.Parse(parts[3]))
-        //checkpoint.SetTimesToComplete(int.Parse(parts[4]))
-        //AddGoal(checkpoint);
+        checkpoint.SetBonusPoint(int.Parse(parts[3]));
+        checkpoint.SetTimeDone(int.Parse(parts[4]));
+        checkpoint.SetTimesToComplete(int.Parse(parts[5]));
+        AddGoal(checkpoint);
 
     }
 

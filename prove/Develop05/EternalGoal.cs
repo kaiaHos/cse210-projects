@@ -15,7 +15,7 @@ public class EternalGoal : Goal
 
     public override void DisplayGoal()
     {
-        base.DisplayGoal();
-        Console.WriteLine("{ }", $"{_goal} ({_description})");
+        //base.DisplayGoal();
+        Console.WriteLine("{ }" + $" {_goal} ({_description})");
     }
 }
