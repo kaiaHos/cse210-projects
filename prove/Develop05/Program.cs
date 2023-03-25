@@ -3,7 +3,9 @@ using System;
 class Program
 {
     private static List<Goal> _goals = new List<Goal>();
-    private static int _points;
+    private static int _points = 0;
+    private static int _pointsToNextLevel = 1000;
+    private static int _level = 1;
    
     static void Main(string[] args)
     {
@@ -12,6 +14,7 @@ class Program
 
         do
         {
+            Console.WriteLine($"You are level {_level}. You need {_pointsToNextLevel} points to get to the next level.");
             Console.WriteLine($" You have {_points} points");
             Console.WriteLine();
             Console.WriteLine("1. New Goal"); 
@@ -93,8 +96,10 @@ class Program
                 case "6": // Quit
                     Console.WriteLine("Thanks for Goal setting/completing today!");
                     break;
-       
             }
+
+            _level = ((_points/1000) + 1);
+            _pointsToNextLevel = (((_level) * 1000) - _points);
         } while (menuNumber != "6");
         //SimpleGoal simple = new SimpleGoal("say one talk", "speak in sacrament", 50);
         //Console.WriteLine(simple.Completed());
