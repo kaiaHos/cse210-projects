@@ -51,7 +51,7 @@ public class Goal
         return "";
     }
 
-    public virtual void CompleteGoal(Boolean done)
+    public virtual void MarkComplete(Boolean done)
     {
         Program program = new Program();
         program.SetPoints(_completionPoints); 

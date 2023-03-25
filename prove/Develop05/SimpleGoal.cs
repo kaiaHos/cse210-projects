@@ -13,7 +13,7 @@ public class SimpleGoal : Goal
         return base.GetCompleted();
     }
 
-    public override void CompleteGoal(Boolean done = true)
+    public override void MarkComplete(Boolean done = true)
     {
         Program program = new Program();
         program.SetPoints(_completionPoints); 

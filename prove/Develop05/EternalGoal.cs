@@ -8,7 +8,7 @@ public class EternalGoal : Goal
 
     }
 
-    public override void CompleteGoal(Boolean done = false)
+    public override void MarkComplete(Boolean done = false)
     {
         Program program = new Program();
         program.SetPoints(_completionPoints); 

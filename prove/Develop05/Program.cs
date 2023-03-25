@@ -88,7 +88,7 @@ class Program
                         Console.WriteLine($"{count}. {listGoal.GetGoal()}");
                     }
                     Console.Write("Please Select the Goal you have completed: ");
-                    _goals[(int.Parse(Console.ReadLine())-1)].CompleteGoal(true);
+                    _goals[(int.Parse(Console.ReadLine())-1)].MarkComplete(true);
                     break;
                 case "6": // Quit
                     Console.WriteLine("Thanks for Goal setting/completing today!");
