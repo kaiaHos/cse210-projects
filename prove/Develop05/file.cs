@@ -3,18 +3,44 @@ using System.IO;
 
 class File : Program
 {
-    public void SaveGoal(Goal goal)
+    private List<Goal> _loadedGoals = new List<Goal>();
+    public void SaveGoal(List<Goal> goals, int numPoints)
     {
+        Console.Write("Please enter the file name? ");
+        string fileName = Console.ReadLine();
 
-        Console.WriteLine(goal);
+        using (StreamWriter outputFile  = new StreamWriter(fileName))
+        {
+            outputFile.WriteLine(numPoints);
+
+            foreach(Goal goal in goals)
+            {
+                switch (goal)
+                {
+                    case SimpleGoal:
+                        outputFile.WriteLine($"{goal}:{goal.GetGoal()}||{goal.GetDescription()}||{goal.GetPoint()}||{goal.GetCompleted()}");
+                        break;
+                    case CheckpointGoal:
+                        outputFile.WriteLine($"{goal}:{goal.GetGoal()}||{goal.GetDescription()}||{goal.GetPoint()}||{goal.GetBonusPoint()}||{goal.GetTimeDone()}||{goal.GetTimesToComplete()}");
+                        break;
+                    case EternalGoal:
+                        outputFile.WriteLine($"{goal}:{goal.GetGoal()}||{goal.GetDescription()}||{goal.GetPoint()}");
+                        break;
+                }
+                
+            }
+
+        }
+
+        //Console.WriteLine(goal);
     }
 
-    public void LoadGoals()
+    public List<Goal> LoadGoals()
     {
         Console.Write("Please enter the file name? ");
         string fileName = Console.ReadLine();
         int count = 0;
-         Program program = new Program();
+         //Program program = new Program();
 
         string[] file = System.IO.File.ReadAllLines(fileName);
 
@@ -37,17 +63,19 @@ class File : Program
                 {
                     CreateSimpleGoal(goalInfo);
                 }
-                 if (GoalType == "CheckpointGoal")
+                else if (GoalType == "CheckpointGoal")
                 {
                     CreateCheckpointGoal(goalInfo);
                 }
             }
             else if (count == 0)
             {
-                program.SetPoints(int.Parse(line)); 
+                SetPoints(int.Parse(line)); 
                 count = count + 1;
             }
         }
+
+        return _loadedGoals;
            
     }
 
@@ -56,8 +84,9 @@ class File : Program
         string[] parts = AllGoalInfo.Split("||");
 
         SimpleGoal simple = new SimpleGoal(parts[0], parts[1], int.Parse(parts[2]));
-        simple.SetGoalCompletion(Convert.ToBoolean(parts[4]));
-        AddGoal(simple);
+        simple.SetGoalCompletion(Convert.ToBoolean(parts[3]));
+        _loadedGoals.Add(simple);
+        //Console.Write("ADDED goal");
     }
 
     public void CreateEternalGoal(string AllGoalInfo)
@@ -65,7 +94,7 @@ class File : Program
         string[] parts = AllGoalInfo.Split("||");
 
         EternalGoal eternal = new EternalGoal(parts[0], parts[1], int.Parse(parts[2]));
-        AddGoal(eternal);
+        _loadedGoals.Add(eternal);
     }
 
     public void CreateCheckpointGoal(string AllGoalInfo)
@@ -77,7 +106,7 @@ class File : Program
         checkpoint.SetBonusPoint(int.Parse(parts[3]));
         checkpoint.SetTimeDone(int.Parse(parts[4]));
         checkpoint.SetTimesToComplete(int.Parse(parts[5]));
-        AddGoal(checkpoint);
+        _loadedGoals.Add(checkpoint);
 
     }
 

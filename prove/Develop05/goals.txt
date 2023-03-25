@@ -1,0 +1,4 @@
+850
+SimpleGoal:Read "Worlds Collide" by Abramson, Traci Hunter||read the whole entire book||300||True
+EternalGoal:read scriptures||read everyday to learn about Christ||20
+CheckpointGoal:Read 10 books||Read different books to improve my knowledge||10||400||4||10

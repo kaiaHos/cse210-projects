@@ -8,16 +8,24 @@ public class SimpleGoal : Goal
 
     }
 
-    public override Boolean Completed()
+    public override Boolean GetCompleted()
     {
-        return base.Completed();
+        return base.GetCompleted();
+    }
+
+    public override void CompleteGoal(Boolean done = true)
+    {
+        Program program = new Program();
+        program.SetPoints(_completionPoints); 
+
+        SetGoalCompletion(done);
     }
 
     public override void DisplayGoal()
     {
         string done = "{ }";
 
-        if (Completed())
+        if (GetCompleted())
         {
             done = "{X}";
         }

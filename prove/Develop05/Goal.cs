@@ -15,15 +15,51 @@ public class Goal
         _completionPoints = points;
     }
 
-    public virtual void SetGoalCompletion(Boolean done)
+        public void SetGoalCompletion(Boolean done)
     {
-        Program program = new Program();
-        _complete = done;
-
-        program.SetPoints(_completionPoints);       
+        _complete = done;  
     }
 
-    public virtual Boolean Completed()
+
+    public string GetGoal()
+    {
+        return _goal;
+    }
+
+    public string GetDescription()
+    {
+        return _description;
+    }
+
+    public string GetPoint()
+    {
+        return _completionPoints.ToString();
+    }
+
+    public virtual string GetTimeDone()
+    {
+        return "";
+    }
+
+    public virtual string GetTimesToComplete()
+    {
+       return "";
+    }
+
+    public virtual string GetBonusPoint()
+    {
+        return "";
+    }
+
+    public virtual void CompleteGoal(Boolean done)
+    {
+        Program program = new Program();
+        program.SetPoints(_completionPoints); 
+
+        SetGoalCompletion(done);
+    }
+
+    public virtual Boolean GetCompleted()
     {
         return _complete;
     }

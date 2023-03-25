@@ -8,7 +8,15 @@ public class EternalGoal : Goal
 
     }
 
-    public override Boolean Completed()
+    public override void CompleteGoal(Boolean done = false)
+    {
+        Program program = new Program();
+        program.SetPoints(_completionPoints); 
+
+        SetGoalCompletion(false);
+    }
+
+    public override Boolean GetCompleted()
     {
         return false;
     }

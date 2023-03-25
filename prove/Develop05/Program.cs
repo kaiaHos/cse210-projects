@@ -2,7 +2,7 @@ using System;
 
 class Program
 {
-    static List<Goal> _goals = new List<Goal>();
+    private static List<Goal> _goals = new List<Goal>();
     private static int _points;
    
     static void Main(string[] args)
@@ -58,6 +58,7 @@ class Program
                             break;
                         case "3":  // checkpoint
                             CheckpointGoal check = new CheckpointGoal(goalPlan, description, points);
+                            check.SetOtherInfo();
                             _goals.Add(check);
                             break;
                     }
@@ -69,15 +70,25 @@ class Program
                     }
                     break;
                 case "3": // Save Goal
-                    foreach (Goal oldGoal in _goals)
-                    {
-                        file.SaveGoal(oldGoal);
-                    }
+                    file.SaveGoal(_goals,_points);
                     break;
                 case "4": // Load Goals
-                    file.LoadGoals();
+                    List<Goal> loadedGoals = file.LoadGoals();
+                    foreach(Goal loadGoal in loadedGoals)
+                    {
+                        _goals.Add(loadGoal);
+                       // Console.WriteLine("Goal ADDED");
+                    }
                     break;
                 case "5": // Record Event
+                    int count = 0;
+                    foreach (Goal listGoal in _goals)
+                    {
+                        count += 1;
+                        Console.WriteLine($"{count}. {listGoal.GetGoal()}");
+                    }
+                    Console.Write("Please Select the Goal you have completed: ");
+                    _goals[(int.Parse(Console.ReadLine())-1)].CompleteGoal(true);
                     break;
                 case "6": // Quit
                     Console.WriteLine("Thanks for Goal setting/completing today!");
@@ -94,11 +105,5 @@ class Program
     {
         _points += numPoints;
     }
-
-    public void AddGoal(Goal goal)
-    {
-        _goals.Add(goal);
-    }
-
    
 }
