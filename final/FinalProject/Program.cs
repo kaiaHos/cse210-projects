@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 class Program
 {
@@ -32,7 +33,7 @@ class Program
                     if (_foodInList)
                     {
                         Price price = new Price(_foods);
-                        Console.WriteLine($"Your total price would be ${price.GetTotal()}"); 
+                        Console.WriteLine($"Your total space would be ${price.GetTotal()} inches cubed."); 
                     } 
                     else
                     {
@@ -122,6 +123,13 @@ class Program
                             OtherFood other = new OtherFood(foodType, amount, foodWeight, 10);
                             _foods.Add(other);
                             break;
+                    }
+
+                    Console.Write("Would you like to add a price? ");
+                    if (Console.ReadLine().ToLower() == "yes")
+                    {
+                        Console.WriteLine("Please input the price: ");
+                        _foods.Last().SetPrice(double.Parse(Console.ReadLine()));
                     }
 
                     break;

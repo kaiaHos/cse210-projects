@@ -8,7 +8,7 @@ public abstract class Food
     protected string _description = "";
     protected float _amount;
     protected double _weight; // it will be in lb.
-    protected int _size; // ?
+    protected int _size = 7; // ?
     protected double _price = 45; // in dollars
 
     public Food(string type, float amount, double weight, int size)
@@ -34,10 +34,10 @@ public abstract class Food
     {
         _weight = weight;
     }
-    
-    public double GetPrice()
+
+    public void SetPrice(double price)
     {
-        return _price;
+        _price = price;
     }
 
     public float GetAmount()
@@ -57,7 +57,7 @@ public abstract class Food
 
     public virtual float GetVolume()
     {
-        float volume = _size * (float)2.00;
+        float volume = _size * _size * _size;
         return volume;
     }
 
@@ -65,4 +65,10 @@ public abstract class Food
     {
         return 10;
     }
+
+     public virtual double GetPrice()
+    {
+        return _price;
+    }
+
 }

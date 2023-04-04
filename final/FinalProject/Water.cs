@@ -19,4 +19,9 @@ public class Water: Food
         // Fix this later
         return base.GetHowMuchNeeded(age);
     }
+
+    public override double GetPrice()
+    {
+        return 0.0;
+    }
 }
