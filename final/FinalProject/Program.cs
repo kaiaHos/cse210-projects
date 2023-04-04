@@ -17,7 +17,7 @@ class Program
             Console.WriteLine("2. Total Space"); 
             Console.WriteLine("3. Determine how much per person");
             Console.WriteLine("4. Add a food");
-            //Console.WriteLine("5. Save"); // ????????????????????????
+            Console.WriteLine("5. Change food info"); 
             Console.WriteLine("6. Quit");
             Console.Write("Please enter the number of the one you want to do: ");
             menuNumber = Console.ReadLine();
@@ -78,6 +78,7 @@ class Program
                     Console.WriteLine("4. Fruit");// 3 Water
                     Console.WriteLine("5. Vegetable");// 3 Water
                     Console.WriteLine("6. Dairy");// 3 Water
+                    Console.WriteLine("7. Other");
 
                     Console.Write("Please enter the category of the one you want to add: ");
                     string foodCategory = Console.ReadLine();
@@ -117,11 +118,52 @@ class Program
                             Dairy dairy = new Dairy(foodType, amount, foodWeight, 10);
                             _foods.Add(dairy);
                             break;
+                        case "7": //other
+                            OtherFood other = new OtherFood(foodType, amount, foodWeight, 10);
+                            _foods.Add(other);
+                            break;
                     }
 
                     break;
                 case "5": // 
-                    
+                    if(_foodInList)
+                   {
+                        int count = 1;
+                        foreach(Food food in _foods)
+                        {
+                            Console.WriteLine($"{count}. {food.GetFoodInfo()}");
+                            count += 1;
+                        }
+                        
+                        Console.Write("Which item do you want to change info for (ex. 3)? ");
+                        int itemNum = (int.Parse(Console.ReadLine()) - 1);
+
+                        Console.WriteLine();
+                        Console.WriteLine("1. quantity");
+                        Console.WriteLine("2. Weight");
+                        Console.WriteLine("3. Name of food");
+                        Console.Write("Which thing would you like to change? ");
+                        switch (Console.ReadLine())
+                        {
+                            case "1": // quantity
+                                Console.Write("What is the new amount? ");
+                                _foods[itemNum].SetAmount(float.Parse(Console.ReadLine()));
+                                break;
+                            case "2": // weight
+                            Console.Write("What is the new weight? ");
+                                _foods[itemNum].SetWeight(double.Parse(Console.ReadLine()));
+                                break;
+                            case "3": //
+                                Console.Write("What is the new name? ");
+                                _foods[itemNum].SetFoodType(Console.ReadLine());
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No food input yet");
+                    }
+
                     break;
                 case "6": // Quit
                     Console.WriteLine("Thanks for thinking of your furture today!");

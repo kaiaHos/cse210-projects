@@ -9,7 +9,8 @@ public class Price
     {
         foreach (Food food in foods)
         {
-            _total += food.GetPrice();
+            Console.WriteLine(food);
+            _total += (food.GetPrice() * food.GetAmount());
         }
     }
     public double GetTotal()
