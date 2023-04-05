@@ -10,6 +10,7 @@ class Program
     {
         string menuNumber;
         //File file = new File();
+        Console.Clear();
 
         do
         {
@@ -22,6 +23,7 @@ class Program
             Console.WriteLine("6. Quit");
             Console.Write("Please enter the number of the one you want to do: ");
             menuNumber = Console.ReadLine();
+            Console.WriteLine("");
 
             switch(menuNumber)
             {
@@ -33,7 +35,8 @@ class Program
                     if (_foodInList)
                     {
                         Price price = new Price(_foods);
-                        Console.WriteLine($"Your total amount would be ${price.GetTotal()}"); 
+                        string foodPrice = String.Format("{0:0.00}", price.GetTotal());
+                        Console.WriteLine($"Your total amount would be ${foodPrice}"); 
                     } 
                     else
                     {
@@ -148,7 +151,7 @@ class Program
                         int itemNum = (int.Parse(Console.ReadLine()) - 1);
 
                         Console.WriteLine();
-                        Console.WriteLine("1. quantity");
+                        Console.WriteLine("1. Quantity");
                         Console.WriteLine("2. Weight");
                         Console.WriteLine("3. Name of food");
                         Console.Write("Which thing would you like to change? ");

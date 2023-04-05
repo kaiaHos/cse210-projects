@@ -56,7 +56,7 @@ public class OtherFood: Food
 
      public override double GetPrice()
     {
-        if (_price == 45)
+        if (!_userSetPrice)
         {
             string lowerType = _type.ToLower();
             if (lowerType == "sugar" || lowerType == "granulated sugar" )

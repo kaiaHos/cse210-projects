@@ -11,6 +11,7 @@ public class Price
         {
             //Console.WriteLine(food);
             //Console.WriteLine(food.GetPrice());
+            
             _total += (food.GetPrice() * food.GetAmount());
         }
     }

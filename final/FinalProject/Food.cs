@@ -11,6 +11,7 @@ public abstract class Food
     protected int _size = 7; // ?
     protected double _price = 45; // in dollars
     protected string _needed = "";
+    protected Boolean _userSetPrice = false;
 
     public Food(string type, float amount, double weight, int size)
     {
@@ -39,6 +40,8 @@ public abstract class Food
     public void SetPrice(double price)
     {
         _price = price;
+        _userSetPrice = true;
+
     }
 
     public float GetAmount()

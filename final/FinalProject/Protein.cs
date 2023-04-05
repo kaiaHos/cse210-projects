@@ -21,7 +21,7 @@ public class Protein: Food
 
      public override double GetPrice()
     {
-        if(_price == 45)
+        if(!_userSetPrice)
         {
             string lowerType = _type.ToLower();
             if (lowerType == "white beans" || lowerType == "white bean")

@@ -37,6 +37,10 @@ public class Water: Food
 
     public override double GetPrice()
     {
-        return 0.0;
+        if(!_userSetPrice)
+        {
+            _price = 0.0;
+        }
+        return _price;
     }
 }
