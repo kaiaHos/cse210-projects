@@ -13,10 +13,45 @@ public class OtherFood: Food
         return base.GetVolume();
     }
 
-    public override int GetHowMuchNeeded(int age)
+    public override string GetHowMuchNeeded(int age)
     {
-        // Fix this later
-        return base.GetHowMuchNeeded(age);
+        if( _type.ToLower() == "oil")
+        {
+            _needed = "10 quarts";
+        }
+        else
+        {
+            // determines main amount for an adult
+            int adultPortion = 60;
+            if (_type.ToLower() == "macaroni" || _type.ToLower() == "spaggetti" || _type.ToLower() == "flour" || _type.ToLower() == "white flour")
+            {
+                adultPortion = 400;
+            }
+            else if (_type.ToLower() == "salt")
+            {
+                adultPortion = 8;
+            }
+          
+            // determines how much based off age
+            if (age <= 3)
+            {
+                _needed = $"{adultPortion * .5} pounds";
+            }
+            if (age <= 6)
+            {
+                _needed = $"{60 * .7} pounds";
+            }
+            if (age <= 10)
+            {
+                _needed = $"{60 * .9} pounds";
+            }
+            if (age >= 11)
+            {
+                _needed = $"{60 * 1} pounds";
+            }
+            
+        }
+        return _needed;
     }
 
      public override double GetPrice()

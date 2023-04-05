@@ -33,7 +33,7 @@ class Program
                     if (_foodInList)
                     {
                         Price price = new Price(_foods);
-                        Console.WriteLine($"Your total space would be ${price.GetTotal()} inches cubed."); 
+                        Console.WriteLine($"Your total amount would be ${price.GetTotal()}"); 
                     } 
                     else
                     {
@@ -44,7 +44,7 @@ class Program
                     if(_foodInList)
                     {
                         Space space = new Space(_foods);
-                        Console.WriteLine($"Your total price would be ${space.GetTotalSpace()}");
+                        Console.WriteLine($"Your total space would be {space.GetTotalSpace()} inches cubed.");
                     }
                     else
                     {
@@ -64,7 +64,8 @@ class Program
                         Console.Write("Which item do you want to know how much food to store? (ex. 3) ");
                         int itemNum = (int.Parse(Console.ReadLine()) - 1);
                         Console.Write("What is the age of the person? (ex. 21) ");
-                        _foods[itemNum].GetHowMuchNeeded(int.Parse(Console.ReadLine()));
+                        int age = int.Parse(Console.ReadLine());
+                        Console.WriteLine($"You will need {_foods[itemNum].GetHowMuchNeeded(age)} of {_foods[itemNum].GetFoodType()} for a years supply");
                     }
                     else
                     {

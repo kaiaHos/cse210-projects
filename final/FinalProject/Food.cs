@@ -10,6 +10,7 @@ public abstract class Food
     protected double _weight; // it will be in lb.
     protected int _size = 7; // ?
     protected double _price = 45; // in dollars
+    protected string _needed = "";
 
     public Food(string type, float amount, double weight, int size)
     {
@@ -61,9 +62,25 @@ public abstract class Food
         return volume;
     }
 
-    public virtual int GetHowMuchNeeded(int age)
+    public virtual string GetHowMuchNeeded(int age)
     {
-        return 10;
+        if (age <= 3)
+        {
+            _needed = $"{60 * .5} pounds";
+        }
+        if (age <= 6)
+        {
+            _needed = $"{60 * .7} pounds";
+        }
+        if (age <= 10)
+        {
+            _needed = $"{60 * .9} pounds";
+        }
+        if (age >= 11)
+        {
+            _needed = $"{60 * 1} pounds";
+        }
+        return _needed;
     }
 
      public virtual double GetPrice()

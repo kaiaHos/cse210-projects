@@ -14,10 +14,25 @@ public class Grain: Food
         return base.GetVolume();
     }
 
-    public override int GetHowMuchNeeded(int age)
+    public override string GetHowMuchNeeded(int age)
     {
-        // Fix this later
-        return base.GetHowMuchNeeded(age);
+       if (age <= 3)
+        {
+            _needed = $"{400 * .5} pounds";
+        }
+        if (age <= 6)
+        {
+            _needed = $"{400 * .7} pounds";
+        }
+        if (age <= 10)
+        {
+            _needed = $"{400 * .9} pounds";
+        }
+        if (age >= 11)
+        {
+            _needed = $"{400 * 1} pounds";
+        }
+        return _needed;
     }
     public override double GetPrice()
     {

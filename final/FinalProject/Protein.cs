@@ -14,9 +14,8 @@ public class Protein: Food
         return base.GetVolume();
     }
 
-    public override int GetHowMuchNeeded(int age)
+    public override string GetHowMuchNeeded(int age)
     {
-        // Fix this later
         return base.GetHowMuchNeeded(age);
     }
 
