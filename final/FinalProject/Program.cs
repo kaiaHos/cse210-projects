@@ -35,6 +35,7 @@ class Program
                     if (_foodInList)
                     {
                         Price price = new Price(_foods);
+                        // https://www.c-sharpcorner.com/UploadFile/9b86d4/how-to-round-a-decimal-value-to-2-decimal-places-in-C-Sharp/
                         string foodPrice = String.Format("{0:0.00}", price.GetTotal());
                         Console.WriteLine($"Your total amount would be ${foodPrice}"); 
                     } 
